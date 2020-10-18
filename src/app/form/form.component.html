@@ -1,0 +1,67 @@
+<div class="container mt-4">
+<h1 style="text-align: center;" ><i>Feedback Form</i></h1>
+</div>
+<div class="container bord mt-4">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="form-group row">
+    <label class="col-sm-1 col-form-label"><h6>Name:</h6></label>
+    <div class="col-sm-11"><input type="text" class="form-control" formControlName="name"></div>
+    </div>
+    <div class="form-group row">
+    <label  class="col-sm-1 col-form-label"><h6>Email:</h6></label>
+    <div class="col-sm-11"><input type="text" class="form-control" formControlName="email"></div>
+    </div>
+
+    <fieldset class="form-group">
+      <div class="row">
+        <label class="col-sm-1 col-form-label"><h6>Feedback:</h6></label>
+        <div class="col-sm-11">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" formControlName="feedback" id="gridRadios1" value="Great" checked>
+            <label class="form-check-label" for="gridRadios1">
+              Great
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" formControlName="feedback" id="gridRadios2" value="Okay">
+            <label class="form-check-label" for="gridRadios2">
+              Okay
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" formControlName="feedback" id="gridRadios3" value="Not Good">
+            <label class="form-check-label" for="gridRadios3">
+              Not Good
+            </label>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+
+    <div class="form-group row">
+      <label class="col-sm-1 col-form-label"><h6>Comment:</h6></label>
+      <div class="col-sm-11"><textarea class="form-control" formControlName="comment"></textarea></div>
+      
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+<br>
+<div *ngIf="msg" class="container">
+<div *ngIf="bool; then thenBlock else elseBlock"></div>
+<ng-template #thenBlock>
+  <div class="alert alert-success">
+    <strong>Success!</strong> Form submitted successfully
+  </div>
+</ng-template>
+<ng-template #elseBlock>
+  <div class="alert alert-danger">
+    <strong>Submission Failed !</strong><br>{{msg}}
+  </div>
+
+</ng-template>
+</div>
+
+
+
